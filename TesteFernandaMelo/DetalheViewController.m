@@ -15,6 +15,7 @@
 @implementation DetalheViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.acessar.hidden = true;
     self.stats.hidden = true;
