@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="369"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U9M-O5-7gW" id="FVz-q6-gZX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="368"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="368.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8h-pI-P9f">
@@ -170,7 +170,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uei-ga-pEv">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EiV-Ky-8TL"/>
                                 </constraints>
@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="1580" y="80.50974512743629"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Browser-->
         <scene sceneID="yma-mq-cGS">
             <objects>
-                <viewController id="Hks-Z7-kSs" customClass="WebViewController" sceneMemberID="viewController">
+                <viewController title="Browser" id="Hks-Z7-kSs" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BCD-vI-ZM3"/>
                         <viewControllerLayoutGuide type="bottom" id="dcm-PF-07S"/>
@@ -260,16 +260,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="m3N-8V-xj7">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="m3N-8V-xj7" firstAttribute="centerY" secondItem="0ki-5Y-q7N" secondAttribute="centerY" id="3mJ-dh-Dl9"/>
                             <constraint firstItem="KKp-HV-kKU" firstAttribute="leading" secondItem="0ki-5Y-q7N" secondAttribute="leading" id="435-ru-lEo"/>
+                            <constraint firstItem="m3N-8V-xj7" firstAttribute="centerX" secondItem="0ki-5Y-q7N" secondAttribute="centerX" id="LLC-RP-nyK"/>
                             <constraint firstItem="dcm-PF-07S" firstAttribute="top" secondItem="KKp-HV-kKU" secondAttribute="bottom" id="Uxi-MW-bJd"/>
                             <constraint firstAttribute="trailing" secondItem="KKp-HV-kKU" secondAttribute="trailing" id="pfj-V3-aeD"/>
                             <constraint firstItem="KKp-HV-kKU" firstAttribute="top" secondItem="0ki-5Y-q7N" secondAttribute="top" id="vPJ-sP-iUp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="m3N-8V-xj7" id="fxZ-xT-nws"/>
                         <outlet property="webView" destination="KKp-HV-kKU" id="P8J-Ua-Yt0"/>
                     </connections>
                 </viewController>
@@ -280,9 +287,10 @@
         <!--Navigation Controller-->
         <scene sceneID="DDy-DZ-GKD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZX-hg-CfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="doY-FP-8HH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kYP-dh-iAh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kYP-dh-iAh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -291,7 +299,6 @@
                         <segue destination="RLC-WP-jzH" kind="relationship" relationship="rootViewController" id="c9W-nF-KB4"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GZX-hg-CfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="100" y="82.3088455772114"/>
         </scene>

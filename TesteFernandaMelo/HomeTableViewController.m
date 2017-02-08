@@ -85,7 +85,6 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
-                             //Do some thing here
                              [view dismissViewControllerAnimated:YES completion:nil];
                              
                          }];
@@ -147,6 +146,7 @@
     cell.venue.text = lugar.nome;
     cell.note.text = lugar.descricao;
     cell.views.text = lugar.visualizacoes;
+    
 
     return cell;
 }

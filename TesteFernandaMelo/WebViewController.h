@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-@interface WebViewController : UIViewController<WKUIDelegate>
+@interface WebViewController : UIViewController<UIWebViewDelegate>
 
 @property (nonatomic) NSString *site;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic) WKWebView * web;
 @property (nonatomic, strong) NSArray *activityItems;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @end

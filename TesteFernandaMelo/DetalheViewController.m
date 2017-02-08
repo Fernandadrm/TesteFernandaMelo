@@ -37,7 +37,7 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 //Do some thing here
+                                
                                  [view dismissViewControllerAnimated:YES completion:nil];
                                  
                              }];

@@ -24,7 +24,46 @@
     NSURL *targetURL = [NSURL URLWithString:site];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+    self.webView.delegate = self;
     [self.webView loadRequest:request];
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    
+}
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    self.activity.hidden = false;
+    [self.activity startAnimating];
+    return YES;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self.activity stopAnimating];
+    self.activity.hidden = true;
+}
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+   
+    [self.activity stopAnimating];
+    [self mensagem:@"Atenção" eMensagem:@"Verifique sua conexão com a internet."];
+}
+-(void)mensagem:(NSString *) titulo eMensagem: (NSString *) mensagem{
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:titulo
+                                 message:mensagem
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [view dismissViewControllerAnimated:YES completion:nil];
+                             [self.navigationController popViewControllerAnimated: YES];
+                         }];
+    
+    [view addAction:ok];
+    [self presentViewController:view animated:YES completion:nil];
+    
 }
 
 - (void)compartilhar{
